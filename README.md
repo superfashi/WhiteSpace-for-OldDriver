@@ -25,7 +25,8 @@ Well, as I said before, simple enough, we all know that everything in the comput
 That's all!
 
 # Demo
-So the following is an encrypted `Hello, World!` message:
+All the code part down below must be viewed as [raw](https://raw.githubusercontent.com/hanbang-wang/WhiteSpace-for-OldDriver/master/README.md)!
+The following is an encrypted `Hello, World!` message:
 ```
  	  	    		  	 	 		 		   		 		   		 				  	 		    	      	 	 			 		 				 			  	  		 		   		  	    	    	
 ```
@@ -41,6 +42,7 @@ And as some social apps will escape some continuous spaces, we can use `-a` mode
 ```
 seems even more beautiful!
 
+But, using file is always a best option since even Github will escape those innocent letters.
 # To-Do
 - Try inserting random letters or a specific infomation between char in order to make more confusing text (since the program only recongnize blank :P)
 - Try to make some messages passcode-needed.
