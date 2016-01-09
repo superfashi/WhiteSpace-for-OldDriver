@@ -1,4 +1,3 @@
-# -*- encode: utf-8 -*-
 # Author: SuperFashi
 import binascii
 import getopt
@@ -13,11 +12,8 @@ def writeFile(message, path):
     file.close()
 
 def readFile(path):
-    ret = ''
-    file = open(path).readlines()
-    for line in file:
-        ret += line
-    return ret
+    file = open(path).read()
+    return file
 
 def readWS(white):
     ret = ''
@@ -49,7 +45,17 @@ def toStr(bin):
     return binascii.unhexlify(hex_string.zfill(n + (n & 1))).decode('utf-8')
 
 def usage():
-    print('Watch the code yourself please!')
+    # print('Watch the code yourself please!')
+    print('Usage:') 
+    print('python whitespace.py -e|-d (-i input -o output)')
+    print('-h, --help: View this manual')
+    print('-e, --encrypt: Run encrypt mode')
+    print('-d, --decrypt: Run decrypt mode')
+    print('-a, --advanced: use \'+\' as a spliter in order to prevent some idiot escape methods')
+    print('-i, --input=: Read a file instead of typing it')
+    print('-o, --output=: Write to a file instead of printing it')
+    print('')
+    print('Notice that when you running decrypt mode, everything besides spaces and tabs will be ignored, but at least contain one space or tab or the program will throw an error.')
     exit()
 
 if __name__ == '__main__':
@@ -89,8 +95,9 @@ if __name__ == '__main__':
         try:
             encryptedText = writeWS(toBin(text))
         except Exception, e:
-            print('Encrypt success...fully failed due to ' + e + ' .')
-            print('Try to check your input file!')
+            print(e)
+            print('Encrypt success...fully failed due to some reasons.')
+            print('Try to check your input!')
             usage()
         print('Encrypt finished!')
         if not outputPath:
@@ -108,8 +115,9 @@ if __name__ == '__main__':
         try:
             text = toStr(readWS(white))
         except Exception, e:
-            print('Decrypt success...fully failed due to ' + e + ' .')
-            print('Try to check your input file!')
+            print(e)
+            print('Decrypt success...fully failed due to some reasons.')
+            print('Try to check your input!')
             usage()
         if not outputPath:
             print('Here\'re some messages:')
