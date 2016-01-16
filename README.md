@@ -13,7 +13,7 @@ python whitespace.py -e|-d (-i input -o output)
 -h, --help: View the manual
 -e, --encrypt: Run encrypt mode
 -d, --decrypt: Run decrypt mode
--a, --advanced: use '+' as a spliter in order to prevent some idiot escape methods
+-a, --advanced: use '+' as a spliter in order to prevent some idiot escape methods, also needs to decrypt with this mode
 -i, --input=: Read a file instead of typing it
 -o, --output=: Write to a file instead of printing it
 ```
@@ -30,16 +30,22 @@ The following is an encrypted `Hello, World!` message:
 ```
  	  	    		  	 	 		 		   		 		   		 				  	 		    	      	 	 			 		 				 			  	  		 		   		  	    	    	
 ```
+![demo1.jpg](http://i2.wp.com/www.superfashi.com/wp-content/uploads/2016/01/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2016-01-15-%E4%B8%8B%E5%8D%8811.06.48.jpg)
+
 Wow, nice!
 
 It also supports all the Unicode characters, say Hello as `你好` in Chinese:
 ```
 			  	  	 				 		 	     			  	 		 	  	 		 				 	
 ```
+![demo2.jpg](http://i2.wp.com/www.superfashi.com/wp-content/uploads/2016/01/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2016-01-15-%E4%B8%8B%E5%8D%8811.07.10.jpg)
+
 And as some social apps will escape spaces and tabs, we can use `-a` mode:
 ```
 + + + ++ ++++ +++ + ++ + + ++ +++ +++ + + ++ ++++ +++ + ++ + + ++ +++ +++
 ```
+![demo2.jpg](http://i0.wp.com/www.superfashi.com/wp-content/uploads/2016/01/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7-2016-01-16-%E4%B8%8B%E5%8D%8810.18.53.jpg)
+
 Maybe not that fun anymore...
 
 But, using file is always a best option since even Github will escape those innocent letters.
