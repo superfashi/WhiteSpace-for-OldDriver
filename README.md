@@ -36,11 +36,11 @@ It also supports all the Unicode characters, say Hello as `你好` in Chinese:
 ```
 			  	  	 				 		 	     			  	 		 	  	 		 				 	
 ```
-And as some social apps will escape some continuous spaces, we can use `-a` mode to add a '+' between every char:
+And as some social apps will escape spaces and tabs, we can use `-a` mode:
 ```
- +	+ +	+	+ + +	+ +	+	+ + +	+ +	+ +	+	+	+ + +	+	+ + +	+ +	+	+ + + + +	+ + + + + + +	+	+ +	+	+	+ + +	+	+ +	+	+	+	+ + +	+ +	+	+	+ +
++ + + ++ ++++ +++ + ++ + + ++ +++ +++ + + ++ ++++ +++ + ++ + + ++ +++ +++
 ```
-seems even more beautiful!
+Maybe not that fun anymore...
 
 But, using file is always a best option since even Github will escape those innocent letters.
 # To-Do
