@@ -24,6 +24,16 @@ def readWS(white):
             ret += '1'
     return ret
 
+def readWSAdvance(white):
+    deco = white.split('+')[1:-1]
+    ret = ''
+    for char in deco:
+        if char == '':
+            ret += '0'
+        elif char == ' ':
+            ret += '1'
+    return ret
+
 def writeWS(bin):
     ret = ''
     for char in bin:
@@ -31,8 +41,14 @@ def writeWS(bin):
             ret += ' '
         elif char == '1':
             ret += '	'
-        if Formore:
-            ret += '+'
+    return ret
+
+def writeWSAdvance(bin):
+    ret = '+'
+    for char in bin:
+        if char == '1':
+            ret += ' '
+        ret += '+'
     return ret
 
 def toBin(text):
@@ -51,7 +67,7 @@ def usage():
     print('-h, --help: View this manual')
     print('-e, --encrypt: Run encrypt mode')
     print('-d, --decrypt: Run decrypt mode')
-    print('-a, --advanced: use \'+\' as a spliter in order to prevent some idiot escape methods')
+    print('-a, --advanced: use \'+\' as a spliter in order to prevent some idiot escape methods, also needs to decrypt with this mode')
     print('-i, --input=: Read a file instead of typing it')
     print('-o, --output=: Write to a file instead of printing it')
     print('')
@@ -93,7 +109,10 @@ if __name__ == '__main__':
         else:
             text = readFile(inputPath)
         try:
-            encryptedText = writeWS(toBin(text))
+            if Formore:
+                encryptedText = writeWSAdvance(toBin(text))
+            else:
+                encryptedText = writeWS(toBin(text))
         except Exception, e:
             print(e)
             print('Encrypt success...fully failed due to some reasons.')
@@ -101,19 +120,28 @@ if __name__ == '__main__':
             usage()
         print('Encrypt finished!')
         if not outputPath:
-            print('Please completely copy all the *invisible* things down below:')
+            if Formore:
+                print('Please completely copy all the text down below:')
+            else:
+                print('Please completely copy all the *invisible* things down below:')
             print(encryptedText)
         else:
             writeFile(encryptedText, outputPath)
             print('Please check your file to get some *invisible* things')
     elif decrypt:
         if not inputPath:
-            print('Please enter some *blanks* here:')
+            if Formore:
+                print('Please enter some text here:')
+            else:
+                print('Please enter some *blanks* here:')
             white = raw_input()
         else:
             white = readFile(inputPath)
         try:
-            text = toStr(readWS(white))
+            if Formore:
+                text = toStr(readWSAdvance(white))
+            else:
+                text = toStr(readWS(white))
         except Exception, e:
             print(e)
             print('Decrypt success...fully failed due to some reasons.')
